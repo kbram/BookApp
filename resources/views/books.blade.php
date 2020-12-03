@@ -19,82 +19,182 @@
                     <div class="column p-4">
                         <div class="card">
                             <img src="images/preview/1.jpg" alt="Avatar" style="width:100%">
-                            <div class="container">
+                            <div class="container p-2">
                                 <h4><b>John Doe</b></h4> 
-                                <p>Architect & Engineer</p> 
+                                <div class="row pb-2 pt-2">
+                                    <div class="col-4 ">
+                                        <button type="button" class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 center">
+                                        <button type="button" class="btn btn-primary btn-sm shadow center btn-block"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 right">
+                                        <button type="button" class="btn btn-danger btn-sm shadow rounded pull-right btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="column p-4">
                         <div class="card">
                             <img src="images/preview/2.jpeg" alt="Avatar" style="width:100%">
-                            <div class="container">
+                            <div class="container p-2">
                                 <h4><b>John Doe</b></h4> 
-                                <p>Architect & Engineer</p> 
+                                <div class="row pb-2 pt-2">
+                                    <div class="col-4 ">
+                                        <button type="button" class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 center">
+                                        <button type="button" class="btn btn-primary btn-sm shadow center btn-block"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 right">
+                                        <button type="button" class="btn btn-danger btn-sm shadow rounded pull-right btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div><div class="column p-4">
                         <div class="card">
                             <img src="images/preview/3.png" alt="Avatar" style="width:100%">
-                            <div class="container">
+                            <div class="container p-2">
                                 <h4><b>John Doe</b></h4> 
-                                <p>Architect & Engineer</p> 
+                                <div class="row pb-2 pt-2">
+                                    <div class="col-4 ">
+                                        <button type="button" class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 center">
+                                        <button type="button" class="btn btn-primary btn-sm shadow center btn-block"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 right">
+                                        <button type="button" class="btn btn-danger btn-sm shadow rounded pull-right btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div><div class="column p-4">
                         <div class="card">
                             <img src="images/preview/4.jpg" alt="Avatar" style="width:100%">
-                            <div class="container">
+                            <div class="container p-2">
                                 <h4><b>John Doe</b></h4> 
-                                <p>Architect & Engineer</p> 
+                                <div class="row pb-2 pt-2">
+                                    <div class="col-4 ">
+                                        <button type="button" class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 center">
+                                        <button type="button" class="btn btn-primary btn-sm shadow center btn-block"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 right">
+                                        <button type="button" class="btn btn-danger btn-sm shadow rounded pull-right btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div><div class="column p-4">
                         <div class="card">
                             <img src="images/preview/5.jpeg" alt="Avatar" style="width:100%">
-                            <div class="container">
-                                <h4><b>John Doe</b></h4> 
-                                <p>Architect & Engineer</p> 
+                            <div class="container p-2">
+                                <h4 class="pb-2"><b>John Doe</b></h4> 
+                                <div class="row pb-2 pt-2">
+                                    <div class="col-4 ">
+                                        <button type="button" class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 center">
+                                        <button type="button" class="btn btn-primary btn-sm shadow center btn-block"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 right">
+                                        <button type="button" class="btn btn-danger btn-sm shadow rounded pull-right btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div><div class="column p-4">
                         <div class="card">
                             <img src="images/preview/6.jpg" alt="Avatar" style="width:100%">
-                            <div class="container">
+                            <div class="container p-2">
                                 <h4><b>John Doe</b></h4> 
-                                <p>Architect & Engineer</p> 
+                                <div class="row pb-2 pt-2">
+                                    <div class="col-4 ">
+                                        <button type="button" class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 center">
+                                        <button type="button" class="btn btn-primary btn-sm shadow center btn-block"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 right">
+                                        <button type="button" class="btn btn-danger btn-sm shadow rounded pull-right btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div><div class="column p-4">
                         <div class="card">
                             <img src="images/preview/7.jpg" alt="Avatar" style="width:100%">
-                            <div class="container">
+                            <div class="container p-2">
                                 <h4><b>John Doe</b></h4> 
-                                <p>Architect & Engineer</p> 
+                                <div class="row pb-2 pt-2">
+                                    <div class="col-4 ">
+                                        <button type="button" class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 center">
+                                        <button type="button" class="btn btn-primary btn-sm shadow center btn-block"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 right">
+                                        <button type="button" class="btn btn-danger btn-sm shadow rounded pull-right btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div><div class="column p-4">
                         <div class="card">
                             <img src="images/preview/8.jpg" alt="Avatar" style="width:100%">
-                            <div class="container">
+                            <div class="container p-2">
                                 <h4><b>John Doe</b></h4> 
-                                <p>Architect & Engineer</p> 
+                                <div class="row pb-2 pt-2">
+                                    <div class="col-4 ">
+                                        <button type="button" class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 center">
+                                        <button type="button" class="btn btn-primary btn-sm shadow center btn-block"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 right">
+                                        <button type="button" class="btn btn-danger btn-sm shadow rounded pull-right btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div><div class="column p-4">
                         <div class="card">
                             <img src="images/preview/10.jpeg" alt="Avatar" style="width:100%">
-                            <div class="container">
+                            <div class="container p-2">
                                 <h4><b>John Doe</b></h4> 
-                                <p>Architect & Engineer</p> 
+                                <div class="row pb-2 pt-2">
+                                    <div class="col-4 ">
+                                        <button type="button" class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 center">
+                                        <button type="button" class="btn btn-primary btn-sm shadow center btn-block"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 right">
+                                        <button type="button" class="btn btn-danger btn-sm shadow rounded pull-right btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div><div class="column p-4">
                         <div class="card">
                             <img src="images/preview/11.jpg" alt="Avatar" style="width:100%">
-                            <div class="container">
+                            <div class="container p-2">
                                 <h4><b>John Doe</b></h4> 
-                                <p>Architect & Engineer</p> 
+                                <div class="row pb-2 pt-2">
+                                    <div class="col-4 ">
+                                        <button type="button" class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 center">
+                                        <button type="button" class="btn btn-primary btn-sm shadow center btn-block"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </div>
+                                    <div class="col-4 right">
+                                        <button type="button" class="btn btn-danger btn-sm shadow rounded pull-right btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
