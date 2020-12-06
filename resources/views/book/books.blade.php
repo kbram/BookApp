@@ -16,12 +16,19 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class=" overflow-hidden shadow-lg p-3 mb-5 bg-white " style="background-color:#cedcee;border-radius: 15px;">
             <h1 style="color: #779ecb; font-family: 'Great Vibes', cursive; font-size: 45px; line-height: 60px; font-weight: normal;  text-align: center; text-shadow: 0 3px 2px #000; ">My Store</h1>
+            
             <div class="row p-2" id="showBook" style="">
                 @foreach($books as $book)  
-                    <div class="column p-4">
-                        <div class="card">
-                            <img src="images/{{$book->file_path}}" alt="Avatar" style="width:100%">
-                            <div class="container p-2">
+                    <div class="column p-4" style="min-width: 245px;">
+                        <div class="card p-0" style=" min-width: 245px;">
+                            <div class="bookWrap">
+                                <div class="book">
+                                    <img class="cover" src="images/{{$book->file_path}}" alt="Avatar" style="width:100%">
+                                <div class="spine"></div>
+                            </div>
+                        </div>
+                            
+                            <div class=" p-2" style=" min-width: 245px; ">
                                 <h2><b>{{$book->book_name}}</b></h2> 
                                 <p> </p> 
                                 <div class="row pb-2 pt-2">
@@ -47,4 +54,5 @@
             </div>
         </div>
     </div>
+    
 </x-app-layout>

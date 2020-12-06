@@ -89,7 +89,7 @@ class PaymentManagementController extends Controller
        
        
 
-        return redirect('payment.payments')->with('success', 'Book is Added');
+        return redirect('/payments')->with('success', 'Book is Added');
     }
 
     /**
