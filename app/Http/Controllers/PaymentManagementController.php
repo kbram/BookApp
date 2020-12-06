@@ -186,4 +186,11 @@ class PaymentManagementController extends Controller
         );
         return response()->json($response); 
     }
+    public function getCost(Request $request){
+        $book = Book::where('id', $request->id)->first();
+        
+        
+        return response()->json($book->cost); 
+    }
+    
 }

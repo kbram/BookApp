@@ -66,6 +66,17 @@
     margin-bottom: 20px;
   }
 }
+.navclick{
+  --text-opacity: 1;
+  color: #2251b1;
+  font-size: 20px;
+  -webkit-text-stroke: 0.2px #003466;
+  text-shadow: 2px 2px rgb(110, 154, 204);
+  font-weight:bold;
+
+  font-family: monospace;
+}
+
 </style>
     @livewireStyles
 
@@ -89,8 +100,8 @@
 		});
 		</script>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-sans antialiased" >
+        <div class="min-h-screen bg-gray-100" >
             @livewire('navigation-dropdown')
 
             <!-- Page Heading -->

@@ -21318,6 +21318,21 @@ $('#checkpay').change(function () {
     $('#payment_percentage').prop('readonly', true);
   }
 });
+CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+$('#book_id').on('change', function () {
+  $id = $(this).val(); // $.ajax({
+  //   type : 'GET',
+  //   url: 'payment/getbookcost',
+  //   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+  //   data:  {_token: CSRF_TOKEN,'id':$id},
+  //   success:function (result) {
+  //     alert(result[0]);
+  //   },
+  //   error: function (response, status, error) {
+  //     alert("tgh");
+  //   },
+  // });                 
+});
 $(document).on('click', '.btn-payment', function () {
   $id = this.id;
   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
@@ -21353,6 +21368,7 @@ $(document).on('click', '.btn-payment', function () {
     }
   });
 });
+navclick;
 $(document).on('click', '.btn-book', function () {
   $id = this.id;
   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
@@ -21387,6 +21403,10 @@ $(document).on('click', '.btn-book', function () {
       swal("Your imaginary book data is safe!");
     }
   });
+});
+$(document).on('click', '.navVarify', function () {
+  $('.navVarify').removeClass('navclick');
+  $(this).find(".navclick").css("visibility", "visible");
 });
 
 /***/ }),

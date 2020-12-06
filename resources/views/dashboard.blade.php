@@ -17,10 +17,10 @@
                 @endphp 
                 <section style="">
                     <div class="ss-row  go-anim">
-                        <div class="ribbon" style="color:black;"><i class="icon-time icon-large"></i>{{$book->published_date}}
+                        <div class="ribbon" style="color:#38486E;"><i class="icon-time icon-large"></i><b>    {{$book->published_date}}</b>
                             <div class="seclevelribbon">
                                 <div class="thirdlevelribbon">
-                                    <div class="ribbon-sec">{{$book->cost}} $</div>
+                                    <div class="ribbon-sec" style="color:#38486E;"><b>{{$book->cost}} $</b></div>
                                 </div>
                             </div>
                         </div>

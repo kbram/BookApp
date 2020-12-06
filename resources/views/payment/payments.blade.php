@@ -13,9 +13,9 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-              <table class="table">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" >
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style=" border-width:2px;  border-style:outset;">
+              <table class="table" >
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
