@@ -7,7 +7,7 @@
             </h1>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-outline-success shadow rounded pull-right">New Book</button>
+                <a href="books/create" type="button" class="btn btn-outline-success shadow rounded pull-right" id="newBook">New Book</a>
             </div>
         </div>
     </x-slot>
@@ -15,7 +15,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
-                <div class="row p-2">
+                <div class="row p-2" id="showBook" style="">
                     <div class="column p-4">
                         <div class="card">
                             <img src="images/preview/1.jpg" alt="Avatar" style="width:100%">
@@ -199,6 +199,9 @@
                         </div>
                     </div>
                 </div>  
+                
+                    
+        
                 <!-- <x-jet-welcome /> -->
             </div>
         </div>

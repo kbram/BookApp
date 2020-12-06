@@ -19,5 +19,15 @@ class Payment extends Model
         'payment_cost',
         'author_id',
         'book_id',
+        'percentage',
     ];
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User','id');
+    }
+    
+    public function book()
+    {
+        return $this->belongsTo('App\Models\Book','id');
+    }
 }

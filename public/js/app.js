@@ -21261,6 +21261,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./script */ "./resources/js/script.js");
+
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
 /***/ }),
@@ -21294,6 +21296,63 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/script.js":
+/*!********************************!*\
+  !*** ./resources/js/script.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('#newBook').click(function () {
+  $('#createBook').addClass('d-block');
+  $('#showBook').addClass('d-none');
+});
+$('#checkpay').prop('checked', false);
+$('#checkpay').change(function () {
+  if ($(this).prop('checked')) {
+    $('#payment_percentage').prop('readonly', false);
+  } else {
+    $('#payment_percentage').prop('readonly', true);
+  }
+});
+$(document).on('click', '.btn-payment', function () {
+  $id = this.id;
+  var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this data!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true
+  }).then(function (willDelete) {
+    if (willDelete) {
+      $.ajax({
+        type: 'POST',
+        url: 'payment/delete',
+        data: {
+          _token: CSRF_TOKEN,
+          'id': $id
+        },
+        success: function success(result) {
+          swal("Poof! Your imaginary data has been deleted!", {
+            icon: "success"
+          });
+          location.reload();
+        },
+        error: function error(response, status, _error) {
+          if (response.status === 422) {}
+
+          ;
+        }
+      });
+    } else {
+      swal("Your imaginary data is safe!");
+    }
+  });
+});
 
 /***/ }),
 

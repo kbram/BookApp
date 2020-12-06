@@ -17,6 +17,10 @@ Route::fallback('App\Http\Controllers\HomeController@index');
 Route::get('/', function () {
     return view('auth/login');
 });
+Route::resource('books', 'App\Http\Controllers\BookManagementController');
+Route::resource('payments', 'App\Http\Controllers\PaymentManagementController', ['except' => ['index']]);
+Route::get('payment', 'App\Http\Controllers\PaymentManagementController@index');
+Route::post('payment/delete', 'App\Http\Controllers\PaymentManagementController@deleteRequest');
 Route::get('/home', function () {
     return view('welcome');
 });
@@ -26,11 +30,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/books', function () {
-    return view('books');
+    return view('book.books');
 })->name('books');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/payments', function () {
-    return view('payments');
+    return view('payment.payments');
 })->name('payments');
 
 Route::view('/livewire', 'livewire');

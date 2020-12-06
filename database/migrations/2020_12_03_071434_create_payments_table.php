@@ -15,11 +15,12 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->date('payment_date');
+            $table->timestamp('payment_date');
             $table->string('amount');
             $table->string('payment_cost');
-            $table->bigInteger('author_id');
-            $table->bigInteger('book_id');
+            $table->Integer('percentage');
+            $table->bigInteger('author_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('book_id')->references('id')->on('books')->onDelete('cascade');
             $table->timestamps();
         });
     }

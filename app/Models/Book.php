@@ -20,4 +20,12 @@ class Book extends Model
         'file_path',
         'published_date',
     ];
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User','id');
+    }
+    public function payment()
+    {
+        return $this->hasMany('App\Models\Payment','id');
+    }
 }
