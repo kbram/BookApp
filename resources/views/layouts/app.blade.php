@@ -191,7 +191,8 @@ body {
 		<script>
 		jQuery(document).ready(function ($) {
       $x=$("#count").val();
-      $y=$x/2;
+      $y=Math.round($x/2);
+      
 			scrollinit("coverflow", 1, $y, true, true, true, true, true);
 		});
 		</script>
