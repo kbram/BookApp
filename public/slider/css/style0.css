@@ -218,7 +218,7 @@ Version: 1.0
 	overflow:hidden;
 }
 .ss-holder #articlehold .hover-effect{
-	max-height:480px;
+	max-height:540px;
 }
 .ss-holder #articlehold .no-content .hover-effect{
 	max-height:480px;
@@ -260,7 +260,7 @@ Version: 1.0
 	color: #fff;
 	text-decoration: none;
 }
-.ss-holder .hover-effect a.info: hover {
+.ss-holder .hover-effect a.info:hover {
 	-webkit-box-shadow: 0 0 5px #000;
 	-moz-box-shadow: 0 0 5px #000;
 	box-shadow: 0 0 5px #000;

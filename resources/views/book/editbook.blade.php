@@ -2,12 +2,12 @@
     <x-slot name="header">
         <div class="row">
             <div class="col">
-            <h1 class="font-semibold text-xl text-gray-800 leading-tight pt-2">
+            <h1 class="font-semibold text-xl text-gray-800 leading-tight pt-2"  style="text-shadow: 2px 2px rgb(110, 154, 204);font-weight:bold;font-family: monospace; -webkit-text-stroke: 0.4px #000;  color:white;font-size:20px;">
                 {{ __('Books') }}
             </h1>
             </div>
             <div class="col">
-            <a href="/books" type="button" class="btn btn-outline-secondary shadow rounded pull-right" id="newBook">Back</a>
+            <a href="/books" type="button" class="btn btn-outline-light shadow rounded pull-right" id="newBook">Back</a>
             </div>
         </div>
     </x-slot>
