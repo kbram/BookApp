@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return redirect("login");
     }
+    public function dash()
+    {
+        return redirect("dashboard");
+    }
 }

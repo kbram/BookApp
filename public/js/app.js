@@ -21337,7 +21337,7 @@ $(document).on('click', '.btn-payment', function () {
           'id': $id
         },
         success: function success(result) {
-          swal("Poof! Your imaginary data has been deleted!", {
+          swal("Poof! Your imaginary   data has been deleted!", {
             icon: "success"
           });
           location.reload();
@@ -21349,7 +21349,42 @@ $(document).on('click', '.btn-payment', function () {
         }
       });
     } else {
-      swal("Your imaginary data is safe!");
+      swal("Your imaginary payment data is safe!");
+    }
+  });
+});
+$(document).on('click', '.btn-book', function () {
+  $id = this.id;
+  var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this data!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true
+  }).then(function (willDelete) {
+    if (willDelete) {
+      $.ajax({
+        type: 'POST',
+        url: 'book/delete',
+        data: {
+          _token: CSRF_TOKEN,
+          'id': $id
+        },
+        success: function success(result) {
+          swal("Poof! Your imaginary book data has been deleted!", {
+            icon: "success"
+          });
+          location.reload();
+        },
+        error: function error(response, status, _error2) {
+          if (response.status === 422) {}
+
+          ;
+        }
+      });
+    } else {
+      swal("Your imaginary book data is safe!");
     }
   });
 });

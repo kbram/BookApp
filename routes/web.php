@@ -18,12 +18,17 @@ Route::get('/', function () {
     return view('auth/login');
 });
 Route::resource('books', 'App\Http\Controllers\BookManagementController');
-Route::resource('payments', 'App\Http\Controllers\PaymentManagementController', ['except' => ['index']]);
+Route::get('book', 'App\Http\Controllers\BookManagementController@index');
+Route::post('book/delete', 'App\Http\Controllers\BookManagementController@deleteRequest');
+
+Route::resource('payments', 'App\Http\Controllers\PaymentManagementController', ['except' => ['index','show','delete']]);
 Route::get('payment', 'App\Http\Controllers\PaymentManagementController@index');
 Route::post('payment/delete', 'App\Http\Controllers\PaymentManagementController@deleteRequest');
+
 Route::get('/home', function () {
     return view('welcome');
 });
+Route::get('/dashboards', 'App\Http\Controllers\HomeController@index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

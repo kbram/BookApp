@@ -45,7 +45,6 @@ class PaymentManagementController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $currentUser = Auth::user()->id;
         $validator = Validator::make(
             $request->all(),
@@ -162,7 +161,7 @@ class PaymentManagementController extends Controller
         
         $payment->save();
 
-        return redirect('payment.payments')->with('success', 'Book is Added');
+        return redirect('/payment')->with('success', 'Book is Added');
     }
 
     /**

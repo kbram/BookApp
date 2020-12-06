@@ -23,7 +23,8 @@ class BookManagementController extends Controller
      */
     public function index()
     {
-        return view('book.books');
+        $books      =Book::all();
+        return view('book.books', compact('books'));
     }
 
     /**
@@ -52,7 +53,7 @@ class BookManagementController extends Controller
                 'book_name'             => 'required|max:255',
                 'book_date'             => 'required',
                 'book_cost'             => 'required',
-                'image'                 => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'book_image'            => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ],
             [
                 'book_name.required'                    => 'Book Name is required',
@@ -68,21 +69,18 @@ class BookManagementController extends Controller
         $imageName = time().'.'.$request->book_image->extension();  
      
         $request->book_image->move(public_path('images'), $imageName);
+        // $request->image->storeAs('images', $imageName);
 
         $book = Book::create([
             'book_name'                      => $request->input('book_name'),
             'author_id'                      => $currentUser,
             'cost'                           => $request->input('book_cost'),
-            'file_path'                      => $request->input('book_image'),
+            'file_path'                      => $imageName,
             'published_date'                 => $request->input('book_date'),
             ]);
 
 
-       $book->save();
-       $name = $request->input('name');
-
-       //dd(Input::hasFile('book_image'));
-    //    dd(Input::hasFile('book_image'),Input::file('book_image'));
+       $book->save();    
         return redirect('book.books')->with('success', 'Book is Added');
     }
 
@@ -105,7 +103,8 @@ class BookManagementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book      =Book::find($id);
+        return view('book.editbook', compact('book'));
     }
 
     /**
@@ -117,7 +116,45 @@ class BookManagementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
+        $currentUser = Auth::user()->id;
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'book_name'             => 'required|max:255',
+                'book_date'             => 'required',
+                'book_cost'             => 'required',
+                'book_image'            => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ],
+            [
+                'book_name.required'                    => 'Book Name is required',
+                'book_date.required'                    => 'Book Date is required',
+                'book_cost.required'                    => 'Book Date is required',
+            ]
+        );
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        if($request->book_image){
+            $imageName = time().'.'.$request->book_image->extension();
+            unlink(public_path("images/{$request->picture}"));
+            $request->book_image->move(public_path('images'), $imageName);
+        }else{
+            $imageName=$request->picture;
+        }
+        
+        $book = Book::find($id);
+        $book->book_name                      = $request->input('book_name');
+        $book->author_id                    = $currentUser;
+        $book->cost                         = $request->input('book_cost');
+        $book->file_path                     = $imageName;
+        $book->published_date                 = $request->input('book_date');
+        
+
+       $book->save();
+
+        return redirect('/book')->with('success', 'Book is Added');
     }
 
     /**
@@ -129,5 +166,17 @@ class BookManagementController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function deleteRequest(Request $request){
+        
+        $book = Book::find($request->id);
+        if ($book->id) {
+            $book->delete();
+        }
+        $response = array(
+            'status' => 'success',
+            'msg' => $request->message,
+        );
+        return response()->json($response); 
     }
 }
