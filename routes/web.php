@@ -18,28 +18,27 @@ Route::get('/', function () {
     return view('auth/login');
 });
 Route::resource('books', 'App\Http\Controllers\BookManagementController');
-Route::get('book', 'App\Http\Controllers\BookManagementController@index');
+
 Route::post('book/delete', 'App\Http\Controllers\BookManagementController@deleteRequest');
 
 Route::resource('payments', 'App\Http\Controllers\PaymentManagementController', ['except' => ['index','show','delete']]);
-Route::get('payment', 'App\Http\Controllers\PaymentManagementController@index');
 Route::post('payment/delete', 'App\Http\Controllers\PaymentManagementController@deleteRequest');
 
 Route::get('/home', function () {
     return view('welcome');
 });
-Route::get('/dashboards', 'App\Http\Controllers\HomeController@index');
+ Route::get('/dashboardhh', 'App\Http\Controllers\PaymentManagementController@index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return App::call('App\Http\Controllers\HomeController@dash');
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/books', function () {
-    return view('book.books');
+    return App::call('App\Http\Controllers\BookManagementController@index');
 })->name('books');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/payments', function () {
-    return view('payment.payments');
+    return App::call('App\Http\Controllers\PaymentManagementController@index');
 })->name('payments');
 
 Route::view('/livewire', 'livewire');

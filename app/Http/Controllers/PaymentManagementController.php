@@ -161,7 +161,7 @@ class PaymentManagementController extends Controller
         
         $payment->save();
 
-        return redirect('/payment')->with('success', 'Book is Added');
+        return redirect('/payments')->with('success', 'Book is Added');
     }
 
     /**

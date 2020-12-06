@@ -24,7 +24,7 @@
                             <img src="images/{{$book->file_path}}" alt="Avatar" style="width:100%">
                             <div class="container p-2">
                                 <h2><b>{{$book->book_name}}</b></h2> 
-                                <p>{{$book->cost}} $</p> 
+                                <p> </p> 
                                 <div class="row pb-2 pt-2">
                                     <div class="col-6">
                                     <a href="{{ URL::to('books/' . $book->id . '/edit') }}"  class="btn btn-warning btn-sm shadow rounded pull-left btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>

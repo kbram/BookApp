@@ -154,7 +154,7 @@ class BookManagementController extends Controller
 
        $book->save();
 
-        return redirect('/book')->with('success', 'Book is Added');
+        return redirect('/books')->with('success', 'Book is Added');
     }
 
     /**

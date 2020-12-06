@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
+use App\Models\Payment;
 
 class HomeController extends Controller
 {
@@ -27,6 +29,8 @@ class HomeController extends Controller
     }
     public function dash()
     {
-        return redirect("dashboard");
+        $payments    =Payment::all();
+        $books      =Book::all();
+        return view("dashboard", compact('payments','books'));
     }
 }

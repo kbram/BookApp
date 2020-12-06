@@ -7,7 +7,7 @@
             </h1>
             </div>
             <div class="col">
-            <a href="/book" type="button" class="btn btn-outline-secondary shadow rounded pull-right" id="newBook">Back</a>
+            <a href="/books" type="button" class="btn btn-outline-secondary shadow rounded pull-right" id="newBook">Back</a>
             </div>
         </div>
     </x-slot>

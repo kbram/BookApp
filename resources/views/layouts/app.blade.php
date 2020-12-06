@@ -18,12 +18,12 @@
 		<!-- Styles -->
 		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 		<script src="https://use.fontawesome.com/ce0e79403c.js"></script>
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" id="fontawesome-css" href="/slider/css/font-awesome/css/font-awesome.css" type="text/css" media="all">
-        <link rel="stylesheet" id="prettyPhoto-css" href="/slider/css/prettyPhoto.css" type="text/css" media="all">
-        <link rel="stylesheet" id="flexslider-css" href="/slider/css/flexslider.css" type="text/css" media="screen">
-        <link rel="stylesheet" id="mainstyle-css" href="/slider/css/style0.css" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" id="fontawesome-css" href="/slider/css/font-awesome/css/font-awesome.css" type="text/css" media="all">
+    <link rel="stylesheet" id="prettyPhoto-css" href="/slider/css/prettyPhoto.css" type="text/css" media="all">
+    <link rel="stylesheet" id="flexslider-css" href="/slider/css/flexslider.css" type="text/css" media="screen">
+    <link rel="stylesheet" id="mainstyle-css" href="/slider/css/style0.css" type="text/css" media="all">
 		<link href="{{{ config('ui.bootstrapToggleCssCDN') }}}" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -67,11 +67,11 @@
   }
 }
 </style>
-        @livewireStyles
+    @livewireStyles
 
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
-        <script type="text/javascript"  src="/slider/js/jquery.js"></script>
+    <!-- Scripts -->
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script type="text/javascript"  src="/slider/js/jquery.js"></script>
 		<script type="text/javascript"  src="/slider/js/jquery-migrate.min.js"></script>
 		<script type="text/javascript"  src="/slider/js/modernizr.custom.79639.js"></script>
 		<script type="text/javascript"  src="/slider/js/jquery.prettyPhoto.js"></script>
@@ -83,7 +83,9 @@
 		
 		<script>
 		jQuery(document).ready(function ($) {
-			scrollinit("coverflow", 1, 0, true, true, true, true, true);
+      $x=$("#count").val();
+      $y=$x/2;
+			scrollinit("coverflow", 1, $y, true, true, true, true, true);
 		});
 		</script>
     </head>
