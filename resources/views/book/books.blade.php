@@ -11,7 +11,16 @@
             </div>
         </div>
     </x-slot>
-
+    @if(session('success'))
+      <br>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Success!</strong>  {{session()->get('success')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+     
+      @endif
     <div class="py-12" >
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class=" overflow-hidden shadow-lg p-3 mb-5 bg-white " style="background-color:#cedcee;border-radius: 15px;">

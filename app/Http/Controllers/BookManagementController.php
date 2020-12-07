@@ -86,7 +86,7 @@ class BookManagementController extends Controller
 
 
        $book->save();    
-        return redirect('/books')->with('success', 'Book is Added');
+        return redirect('/books')->with('success', 'Book detail is Added !!!');
     }
 
     /**
@@ -157,9 +157,8 @@ class BookManagementController extends Controller
         $book->published_date                 = $request->input('book_date');
         
 
-       $book->save();
-
-        return redirect('/books')->with('success', 'Book is Added');
+        $book->save();
+        return redirect('/books')->with('success', 'Book detail is Updated !!!');
     }
 
     /**

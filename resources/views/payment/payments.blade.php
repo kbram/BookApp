@@ -12,14 +12,20 @@
         </div>
     </x-slot>
     
+      @if(session('success'))
+      <br>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Success!</strong>  {{session()->get('success')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+     
+      @endif
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" >
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style=" border-width:2px;  border-style:outset;">
-             
-            @if(session('success'))
-    <h1>{{session('success')}}</h1>
-@endif
- <table class="table" >
+              <table class="table" >
                 <thead>
                   <tr>
                     <th scope="col">ID</th>

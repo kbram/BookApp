@@ -92,11 +92,8 @@ class PaymentManagementController extends Controller
             $payment->save();
         }
 
-
-
-        
-        return redirect('/payments')->withSuccess('IT WORKS!');
-        // return redirect('')->with('success', 'Payment is Added');
+        return redirect('/payments')->with('success', 'Payment detail is Added !!!');
+     
     }
 
     /**
@@ -169,7 +166,7 @@ class PaymentManagementController extends Controller
         
         $payment->save();
 
-        return redirect('/payments')->with('success', 'Book is Added');
+        return redirect('/payments')->with('success', 'payment detail is Updated !!!');
     }
 
     /**

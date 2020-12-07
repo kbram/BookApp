@@ -1,8 +1,4 @@
-$('#newBook').click(function(){
-   
-   $('#createBook').addClass('d-block');
-   $('#showBook').addClass('d-none');
-});
+
 
 $('#checkpay').prop('checked',false);
 $('#checkpay').change(function() { 
