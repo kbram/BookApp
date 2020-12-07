@@ -19,10 +19,15 @@ class PaymentManagementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $payments   =Payment::all();
-        $books      =Book::all();
+        $currentUser = Auth::user()->id; 
+        $payments   =Payment::where('author_id',$currentUser)->get();
+        $books      =Book::where('author_id',$currentUser)->get();
         return view('payment.payments', compact('payments','books'));
     }
 
@@ -33,7 +38,8 @@ class PaymentManagementController extends Controller
      */
     public function create()
     {
-        $books   =Book::all();
+        $currentUser = Auth::user()->id;
+        $books      =Book::where('author_id',$currentUser)->get();
         return view('payment.addpayment', compact('books'));
     }
 
@@ -86,10 +92,11 @@ class PaymentManagementController extends Controller
             $payment->save();
         }
 
-       
-       
 
-        return redirect('/payments')->with('success', 'Book is Added');
+
+        
+        return redirect('/payments')->withSuccess('IT WORKS!');
+        // return redirect('')->with('success', 'Payment is Added');
     }
 
     /**
@@ -112,7 +119,8 @@ class PaymentManagementController extends Controller
     public function edit($id)
     {
         $payment   =Payment::find($id);
-        $books      =Book::all();
+        $currentUser = Auth::user()->id;
+        $books      =Book::where('author_id',$currentUser)->get();
         return view('payment.editpayment', compact('payment','books'));
     }
 

@@ -21,9 +21,14 @@ class BookManagementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $books      =Book::all();
+        $currentUser = Auth::user()->id;
+        $books      =Book::where('author_id',$currentUser)->get();   
         return view('book.books', compact('books'));
     }
 
