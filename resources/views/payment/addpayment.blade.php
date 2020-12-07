@@ -29,7 +29,7 @@
                                         <input type="datetime-local" id="payment_date" name="payment_date" class="form-control">
                                     </div>
                                     @if ($errors->has('payment_date'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('payment_date') }}</strong>
                                         </span>
                                     @endif
@@ -53,7 +53,7 @@
                                         </select>
                                     </div>
                                     @if ($errors->has('book_id'))
-                                    <span class="help-block">
+                                    <span class="help-block" style="color:red;" >
                                         <strong>{{ $errors->first('book_id') }}</strong>
                                     </span>
                                     @endif
@@ -61,14 +61,14 @@
                             </div>
                             <br/>
                             <div class="form-group has-feedback row {{ $errors->has('amount') ? ' has-error ' : '' }}">
-                                {!! Form::label('amount','Recived Amount', array('class' => 'col-md-3 control-label')); !!}
+                                {!! Form::label('amount','Payment Amount', array('class' => 'col-md-3 control-label')); !!}
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         {!! Form::number('amount','NULL', array('id' => 'amount', 'class' => 'form-control', 'placeholder' => 'Recived Amount')) !!}
 
                                     </div>
                                     @if ($errors->has('amount'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('amount') }}</strong>
                                         </span>
                                     @endif
@@ -83,7 +83,7 @@
 
                                     </div>
                                     @if ($errors->has('count'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('count') }}</strong>
                                         </span>
                                     @endif
@@ -91,30 +91,30 @@
                             </div>
                             <br/>
                             <div class="form-group has-feedback row {{ $errors->has('checkpay') ? ' has-error ' : '' }}">
-                                {!! Form::label('checkpay', '', array('class' => 'col-md-3 control-label')); !!}
+                                {!! Form::label('cost', '', array('class' => 'col-md-3 control-label')); !!}
                                     <div class="col-md-4 ">
                                     @if(old('checkpay')==1)
                                     <input name="checkpay" checked id="checkpay" type="checkbox" data-toggle="toggle" data-onstyle="outline-dark" data-offstyle="outline-dark" data-on="Manual" data-off="Default"  >
                                     @else
-                                    <input name="checkpay" id="checkpay" type="checkbox" data-toggle="toggle" data-onstyle="outline-dark" data-offstyle="outline-dark" data-on="Manual" data-off="Default" >
+                                    <input name="checkpay" id="checkpay" type="checkbox" data-toggle="toggle" data-onstyle="outline-dark" data-offstyle="outline-dark" data-on="Manual" data-off="Default" >  <span style="color:darkblue;">  (Deafult cost is 5%)</span>
                                     @endif
                                     </div>
                                         @if ($errors->has('checkpay'))
-                                            <span class="help-block">
+                                            <span class="help-block" style="color:red;">
                                                 <strong>{{ $errors->first('checkpay') }}</strong>
                                             </span>
                                         @endif
                             </div>
                             <br/>
                             <div id="payPercentage" class="form-group has-feedback row  {{ $errors->has('payment_percentage') ? ' has-error ' : '' }}">
-                                {!! Form::label('payment_percentage','Payment Percentage', array('class' => 'col-md-3 control-label' )); !!}
+                                {!! Form::label('payment_percentage','Cost Percentage', array('class' => 'col-md-3 control-label' )); !!}
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         {!! Form::number('payment_percentage','5', array('id' => 'payment_percentage', 'class' => 'form-control','readonly' => 'true','max'=>'100','min'=>'0')) !!}
 
                                     </div>
                                     @if ($errors->has('payment_percentage'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('payment_percentage') }}</strong>
                                         </span>
                                     @endif

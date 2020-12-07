@@ -24,6 +24,9 @@ Route::post('book/delete', 'App\Http\Controllers\BookManagementController@delete
 Route::resource('payments', 'App\Http\Controllers\PaymentManagementController', ['except' => ['index','show','delete']]);
 Route::post('payment/delete', 'App\Http\Controllers\PaymentManagementController@deleteRequest');
 Route::get('payment/getbookcost', 'App\Http\Controllers\PaymentManagementController@getCost');
+Route::get('payment/total', 'App\Http\Controllers\PaymentManagementController@total');
+Route::get('payment/bookvice', 'App\Http\Controllers\PaymentManagementController@bookVice');
+Route::get('payment/paymenthistory', 'App\Http\Controllers\PaymentManagementController@paymentHistory');
 
 Route::get('/home', function () {
     return view('welcome');

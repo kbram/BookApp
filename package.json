@@ -28,6 +28,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "apexcharts": "^3.22.3",
         "chart.js": "^2.9.4",
         "sweetalert2": "^10.11.1"
     }

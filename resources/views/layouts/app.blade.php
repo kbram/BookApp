@@ -27,7 +27,11 @@
 		<link href="{{{ config('ui.bootstrapToggleCssCDN') }}}" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
 		<style>
+    
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
   transition: 0.3s;

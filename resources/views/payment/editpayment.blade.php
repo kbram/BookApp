@@ -30,7 +30,7 @@
                                         <input type="datetime-local" id="payment_date" name="payment_date" value="{{date('Y-m-d\TH:i', strtotime($payment->payment_date))}}" class="form-control">
                                     </div>
                                     @if ($errors->has('payment_date'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('payment_date') }}</strong>
                                         </span>
                                     @endif
@@ -54,7 +54,7 @@
                                         </select>
                                     </div>
                                     @if ($errors->has('book_id'))
-                                    <span class="help-block">
+                                    <span class="help-block" style="color:red;">
                                         <strong>{{ $errors->first('book_id') }}</strong>
                                     </span>
                                     @endif
@@ -69,7 +69,7 @@
 
                                     </div>
                                     @if ($errors->has('amount'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('amount') }}</strong>
                                         </span>
                                     @endif
@@ -85,7 +85,7 @@
 
                                     </div>
                                     @if ($errors->has('payment_percentage'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('payment_percentage') }}</strong>
                                         </span>
                                     @endif

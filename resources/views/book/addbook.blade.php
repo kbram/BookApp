@@ -30,7 +30,7 @@
 
                                     </div>
                                     @if ($errors->has('book_name'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('book_name') }}</strong>
                                         </span>
                                     @endif
@@ -45,7 +45,7 @@
 
                                     </div>
                                     @if ($errors->has('book_image'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('book_image') }}</strong>
                                         </span>
                                     @endif
@@ -60,7 +60,7 @@
 
                                     </div>
                                     @if ($errors->has('book_cost'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('book_cost') }}</strong>
                                         </span>
                                     @endif
@@ -75,7 +75,7 @@
 
                                     </div>
                                     @if ($errors->has('book_date'))
-                                        <span class="help-block">
+                                        <span class="help-block" style="color:red;">
                                             <strong>{{ $errors->first('book_date') }}</strong>
                                         </span>
                                     @endif

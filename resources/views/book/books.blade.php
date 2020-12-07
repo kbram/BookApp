@@ -13,13 +13,14 @@
     </x-slot>
     @if(session('success'))
       <br>
+      <div style="padding-right:5%;padding-left:5%;">
       <div class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>Success!</strong>  {{session()->get('success')}}
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
       </div>
-     
+     <div>
       @endif
     <div class="py-12" >
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

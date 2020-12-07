@@ -11,6 +11,7 @@ use Image;
 use Auth;
 use View;
 use Storage;
+use DB;
 
 class PaymentManagementController extends Controller
 {
@@ -78,17 +79,17 @@ class PaymentManagementController extends Controller
         $count=(int)$request->input('count');
         $cost=$amount*$percentage/100;
        
-        $payment = Payment::create([
-            'payment_date'                       => $request->input('payment_date'),
-            'amount'                             => $amount,
-            'payment_cost'                       => $cost,
-            'author_id'                          => $currentUser,
-            'book_id'                            => $request->input('book_id'),
-            'percentage'                         =>$percentage,
-            ]);
+        
            
         for ($x = 0; $x < $count; $x++) {
-            
+            $payment = Payment::create([
+                'payment_date'                       => $request->input('payment_date'),
+                'amount'                             => $amount,
+                'payment_cost'                       => $cost,
+                'author_id'                          => $currentUser,
+                'book_id'                            => $request->input('book_id'),
+                'percentage'                         =>$percentage,
+                ]);
             $payment->save();
         }
 
@@ -192,10 +193,40 @@ class PaymentManagementController extends Controller
         return response()->json($response); 
     }
     public function getCost(Request $request){
-        $book = Book::where('id', $request->id)->first();
-        
-        
+
+        $book = Book::Find($request->id);
+
         return response()->json($book->cost); 
     }
+    public function total(Request $request){
+        $currentUser = Auth::user()->id;
+        $amount = Payment::Where('author_id',$currentUser)->sum('amount');
+        $payment_cost = Payment::Where('author_id',$currentUser)->sum('payment_cost');
+        $response = array(
+            'amount' => $amount,
+            'payment_cost' => $payment_cost,
+        );
     
+        return response($response); 
+    }
+    public function bookVice(Request $request){
+        $currentUser = Auth::user()->id;
+        $books=DB::table('payments')->where('author_id',$currentUser)
+        ->select(DB::raw('sum(payment_cost) as cost'),DB::raw('sum(amount) as payment'),DB::raw('book_id as id') )
+        ->groupBy(DB::raw('book_id') )
+        ->get();
+
+        foreach($books as $book){
+            $x=Book::Find($book->id);
+            $book->id= $x->book_name;
+        }
+        
+        return response($books); 
+    }
+    public function paymentHistory(Request $request){
+        $currentUser = Auth::user()->id;
+        $payment = Payment::Where('author_id',$currentUser)->get();
+        
+        return response($payment); 
+    }
 }
