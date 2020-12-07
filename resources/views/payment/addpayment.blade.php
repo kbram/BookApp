@@ -15,7 +15,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
-                
+            <h1 style="color: #000; font-family: 'Great Vibes', cursive; font-size: 45px; line-height: 60px; font-weight: normal;  text-align: center; text-shadow: 0 3px 2px #779ecb; ">Add Payment</h1>
                 <div class="row p-2" id="createBook">
 
                     <div class="card-body">

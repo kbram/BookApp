@@ -13,7 +13,7 @@ $('#checkpay').change(function() {
         $('#payment_percentage').prop('readonly',true);
     }                    
 });
-CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 $('#book_id').on('change', function() {
   
  $id=$(this).val();
@@ -71,7 +71,7 @@ $(document).on('click', '.btn-payment', function() {
         
         
 	});
-  navclick
+
     $(document).on('click', '.btn-book', function() {
         $id=this.id;
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
