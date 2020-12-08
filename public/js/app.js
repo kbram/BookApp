@@ -21461,20 +21461,17 @@ $.ajax({
     _token: CSRF_TOKEN
   },
   success: function success(response) {
-    // var amount=response;
-    // $.each( response, function( key, value ) {
-    //   x[key][0]=value["id"];
-    //   x[key][1]=value["cost"];
-    //   x[key][2]=value["payment"];
-    // });
-    // alert(x[0][0]);
+    var pay = [['Books', 'Cost', 'Payment']];
+    $.each(response, function (key, value) {
+      pay.push([value["id"], value["cost"], value["payment"]]);
+    });
     google.charts.load('current', {
       'packages': ['bar']
     });
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-      var data = google.visualization.arrayToDataTable([['Books', 'Payment', 'Cost'], ['Load of the ring', 1000, 400], ['Picsels', 1170, 460], ['Harry Potter', 660, 1120], ['Hobbit', 1030, 540]]);
+      var data = google.visualization.arrayToDataTable(pay);
       var options = {
         chart: {
           title: 'Compare with book',
@@ -21498,9 +21495,11 @@ $.ajax({
     _token: CSRF_TOKEN
   },
   success: function success(response) {
-    // var amount=response["amount"];
-    // var payment_cost=response["payment_cost"];
-    // var date=response["payment_date"];
+    // alert(response);
+    var pay = [["2020-01-01 00:00:00", 0, 0]];
+    $.each(response, function (key, value) {
+      pay.push([value["payment_date"], parseInt(value["amount"]), parseInt(value["payment_cost"])]);
+    });
     google.charts.load('current', {
       'packages': ['line']
     });
@@ -21508,10 +21507,10 @@ $.ajax({
 
     function drawChart() {
       var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Result');
+      data.addColumn('string', 'Dates');
       data.addColumn('number', 'Payment');
       data.addColumn('number', 'Cost');
-      data.addRows([[1, 37.8, 80.8], [2, 30.9, 69.5], [3, 25.4, 57], [4, 11.7, 18.8], [5, 11.9, 17.6], [6, 8.8, 13.6], [7, 7.6, 12.3], [8, 12.3, 29.2], [9, 16.9, 42.9], [10, 12.8, 30.9], [11, 5.3, 7.9], [12, 6.6, 8.4], [13, 4.8, 6.3], [14, 4.2, 6.2]]);
+      data.addRows(pay);
       var options = {
         chart: {
           title: 'Date vice results',
@@ -21532,6 +21531,58 @@ $.ajax({
     }
   },
   error: function error(response, status, _error6) {}
+});
+$(document).on('click', '#search', function () {
+  $s = document.getElementById("start_date").value;
+  $e = document.getElementById("end_date").value;
+  $.ajax({
+    type: 'GET',
+    url: '/payment/serch',
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    data: {
+      _token: CSRF_TOKEN,
+      'start': $s,
+      'end': $e
+    },
+    success: function success(response) {
+      var pay = [["2020-01-01 00:00:00", 0, 0]];
+      $.each(response, function (key, value) {
+        pay.push([value["payment_date"], parseInt(value["amount"]), parseInt(value["payment_cost"])]);
+      });
+      google.charts.load('current', {
+        'packages': ['line']
+      });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Dates');
+        data.addColumn('number', 'Payment');
+        data.addColumn('number', 'Cost');
+        data.addRows(pay);
+        var options = {
+          chart: {
+            title: 'Date vice results',
+            subtitle: 'Recived payment and cost of earning'
+          },
+          width: 900,
+          height: 500,
+          axes: {
+            x: {
+              0: {
+                side: 'top'
+              }
+            }
+          }
+        };
+        var chart = new google.charts.Line(document.getElementById('chart2'));
+        chart.draw(data, google.charts.Line.convertOptions(options));
+      }
+    },
+    error: function error(response, status, _error7) {}
+  });
 });
 
 /***/ }),

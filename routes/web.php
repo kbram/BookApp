@@ -27,6 +27,7 @@ Route::get('payment/getbookcost', 'App\Http\Controllers\PaymentManagementControl
 Route::get('payment/total', 'App\Http\Controllers\PaymentManagementController@total');
 Route::get('payment/bookvice', 'App\Http\Controllers\PaymentManagementController@bookVice');
 Route::get('payment/paymenthistory', 'App\Http\Controllers\PaymentManagementController@paymentHistory');
+Route::get('payment/serch', 'App\Http\Controllers\PaymentManagementController@search');
 
 Route::get('/home', function () {
     return view('welcome');

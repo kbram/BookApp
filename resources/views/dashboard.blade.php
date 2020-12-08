@@ -103,7 +103,7 @@
                 </div>
             </div>
 
-            <div class="p-6 border-t border-gray-200 flex items-center" align="center">
+            <div class="p-6 border-t border-gray-200 " align="center">
                 <div class="flex items-center">
                 <i class="fa fa-history fa-2x" aria-hidden="true"></i>
                     <div class=" text-lg text-gray-600 leading-7 font-semibold"><a href="/dashboard">  Payment History</a></div>
@@ -113,10 +113,42 @@
                     
                 </div>
             </div>
-
+                     
+                            
+                        
             
         </div>
     </div>
+    <div class="row p-2" >
+
+<div class="card-body">
+                            <div class="form-group has-feedback  ">
+                                
+                                <label for="start_date" class="col-md-3 control-label">Stat Date</label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                       
+                                        <input type="date" id="start_date" name="start_date" class="form-control" placeholder="Stat Date"/>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                            
+                            <div class="form-group has-feedback  ">
+                                
+                                <label for="end_date" class="col-md-3 control-label">End Date</label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                       
+                                        <input type="date" id="end_date" name="end_date" class="form-control" placeholder="End Date"/>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                           
+                            <input type="button" id="search" name="end_date" class="btn btn-success col-2" value="Search" />
+                       </div>
+                       </div>
             </div>
         </div>
     </div>

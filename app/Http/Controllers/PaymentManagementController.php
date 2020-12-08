@@ -211,6 +211,7 @@ class PaymentManagementController extends Controller
     }
     public function bookVice(Request $request){
         $currentUser = Auth::user()->id;
+
         $books=DB::table('payments')->where('author_id',$currentUser)
         ->select(DB::raw('sum(payment_cost) as cost'),DB::raw('sum(amount) as payment'),DB::raw('book_id as id') )
         ->groupBy(DB::raw('book_id') )
@@ -227,6 +228,12 @@ class PaymentManagementController extends Controller
         $currentUser = Auth::user()->id;
         $payment = Payment::Where('author_id',$currentUser)->get();
         
+        return response($payment); 
+    }
+    public function search(Request $request){
+        $currentUser = Auth::user()->id;
+       
+        $payment=Payment::Where('author_id',$currentUser)->whereBetween('payment_date', [$request->start, $request->end])->get();
         return response($payment); 
     }
 }
