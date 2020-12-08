@@ -49,12 +49,13 @@
                     <td>{{$payment->amount}}</td>
                     <td>{{$payment->percentage}}%</td>
                     <td>{{$payment->payment_cost}}</td>
+                    <td >
                     @foreach($books as $book)
                       @if($payment->book_id==$book->id)
-                        <td>{{$book->book_name}}</td>
+                        {{$book->book_name}}
                       @endif
                     @endforeach
-                  
+                    </td>
                     <td>
                       <a href="{{ URL::to('payments/' . $payment->id . '/edit') }}" type="button" class="btn btn-warning btn-sm shadow rounded  "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                       <!-- <button type="button" class="btn btn-primary btn-sm shadow  "><i class="fa fa-eye" aria-hidden="true"></i></button> -->

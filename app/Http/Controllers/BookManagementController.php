@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Payment;
 
 use Validator;
 use File;
