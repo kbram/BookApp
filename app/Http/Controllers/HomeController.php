@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Payment;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -29,8 +30,9 @@ class HomeController extends Controller
     }
     public function dash()
     {
-        $payments    =Payment::all();
-        $books      =Book::all();
+        $currentUser = Auth::user()->id;
+        $payments    =Payment::where('author_id',$currentUser)->get();
+        $books      =Book::where('author_id',$currentUser)->get();
         return view("dashboard", compact('payments','books'));
     }
 }

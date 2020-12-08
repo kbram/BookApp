@@ -127,13 +127,13 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" style="color:#7498CD;font-weight: 900;  " >
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('books') }}" :active="request()->routeIs('books')">
+            <x-jet-responsive-nav-link href="{{ route('books') }}" :active="request()->routeIs('books')" style="color:#7498CD;font-weight: 900;  " >
                 {{ __('Books') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('payments') }}" :active="request()->routeIs('payments')">
+            <x-jet-responsive-nav-link href="{{ route('payments') }}" :active="request()->routeIs('payments')" style="color:#7498CD;font-weight: 900;  " >
                 {{ __('Payments') }}
             </x-jet-responsive-nav-link>
         </div>
@@ -146,19 +146,19 @@
                 </div>
 
                 <div class="ml-3">
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="font-medium text-base text-gray-800" style="color:#7498CD;font-weight: 900;  " >{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-gray-500" style="color:#7498CD;font-weight: 900;  " >{{ Auth::user()->email }}</div>
                 </div>
             </div>
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')" style="color:#7498CD;font-weight: 900;  ">
                     {{ __('Profile') }}
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                    <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
+                    <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')" style="color:#7498CD;font-weight: 900;  ">
                         {{ __('API Tokens') }}
                     </x-jet-responsive-nav-link>
                 @endif
@@ -167,9 +167,9 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                    <x-jet-responsive-nav-link href="{{ route('logout') }} "
                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                                this.closest('form').submit();"  style="color:#7498CD;font-weight: 900;  ">
                         {{ __('Logout') }}
                     </x-jet-responsive-nav-link>
                 </form>

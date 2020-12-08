@@ -109,8 +109,10 @@
                     <div class=" text-lg text-gray-600 leading-7 font-semibold"><a href="/dashboard">  Payment History</a></div>
                 </div>
                 <br>
+                <div class="text-center p-5">
                 <div class="ml-12" id="chart2">
                     
+                </div>
                 </div>
             </div>
                      

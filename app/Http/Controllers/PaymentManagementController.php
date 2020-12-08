@@ -27,7 +27,7 @@ class PaymentManagementController extends Controller
     public function index()
     {
         $currentUser = Auth::user()->id; 
-        $payments   =Payment::where('author_id',$currentUser)->get();
+        $payments   =Payment::where('author_id',$currentUser)->paginate(15);
         $books      =Book::where('author_id',$currentUser)->get();
         return view('payment.payments', compact('payments','books'));
     }
@@ -185,6 +185,7 @@ class PaymentManagementController extends Controller
         $payment = Payment::find($request->id);
         if ($payment->id) {
             $payment->delete();
+            
         }
         $response = array(
             'status' => 'success',
@@ -211,7 +212,6 @@ class PaymentManagementController extends Controller
     }
     public function bookVice(Request $request){
         $currentUser = Auth::user()->id;
-
         $books=DB::table('payments')->where('author_id',$currentUser)
         ->select(DB::raw('sum(payment_cost) as cost'),DB::raw('sum(amount) as payment'),DB::raw('book_id as id') )
         ->groupBy(DB::raw('book_id') )

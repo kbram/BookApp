@@ -175,6 +175,7 @@ class BookManagementController extends Controller
         
         $book = Book::find($request->id);
         if ($book->id) {
+            $book->payment()->delete();
             $book->delete();
         }
         $response = array(

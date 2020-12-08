@@ -62,11 +62,16 @@
                       
                     </td>
                   </tr>
+                 
                   @endforeach
-                  
+                 
                 </tbody>
               </table>
-                <!-- <x-jet-welcome /> -->
+              <br/>
+              <div class="d-flex justify-content-center">
+              {{ $payments->links("pagination::bootstrap-4") }}
+               </div>
+               <br/>
             </div>
         </div>
     </div>
