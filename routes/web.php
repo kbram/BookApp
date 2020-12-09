@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::fallback('App\Http\Controllers\HomeController@index');
 
 Route::get('/', function () {
+    if(Auth::check()) {
+        return redirect()->route('dashboard');
+    }
     return view('auth/login');
 });
 Route::resource('books', 'App\Http\Controllers\BookManagementController');
@@ -32,7 +35,6 @@ Route::get('payment/serch', 'App\Http\Controllers\PaymentManagementController@se
 Route::get('/home', function () {
     return view('welcome');
 });
- Route::get('/dashboardhh', 'App\Http\Controllers\PaymentManagementController@index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return App::call('App\Http\Controllers\HomeController@dash');
