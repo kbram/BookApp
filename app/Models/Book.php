@@ -22,10 +22,10 @@ class Book extends Model
     ];
     public function user()
     {
-        return $this->belongsTo('App\Models\User','id');
+        return $this->belongsTo('App\Models\User');
     }
     public function payment()
     {
-        return $this->hasMany('App\Models\Payment','id');
+        return $this->hasMany('App\Models\Payment');
     }
 }

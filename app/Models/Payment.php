@@ -23,11 +23,11 @@ class Payment extends Model
     ];
     public function user()
     {
-        return $this->belongsTo('App\Models\User','id');
+        return $this->belongsTo('App\Models\User','author_id');
     }
     
     public function book()
     {
-        return $this->belongsTo('App\Models\Book','id');
+        return $this->belongsTo('App\Models\Book','book_id');
     }
 }

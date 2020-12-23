@@ -61,10 +61,11 @@ class User extends Authenticatable
     ];
     public function book()
     {
-        return $this->hasMany('App\Models\book','id');
+        return $this->hasMany('App\Models\Book','author_id');
     }
     public function payment()
     {
-        return $this->hasMany('App\Models\Payment','id');
+        return $this->hasMany('App\Models\Payment','author_id');
+        
     }
 }
