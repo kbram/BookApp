@@ -20,6 +20,22 @@ Route::get('/', function () {
     }
     return view('auth/login');
 });
+
+Route::get('reset', function () {
+    Artisan::call('route:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    //Artisan::call('storage:link');
+});
+Route::get('migrate', function () {
+    Artisan::call('migrate:fresh');  
+    return "migrated"; 
+});
+
+Route::get('seed', function () {
+    Artisan::call('db:seed');   
+});
 Route::resource('books', 'App\Http\Controllers\BookManagementController');
 
 Route::post('book/delete', 'App\Http\Controllers\BookManagementController@deleteRequest');

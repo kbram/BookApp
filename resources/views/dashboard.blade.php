@@ -65,7 +65,19 @@
                         <div class="mt-8 text-2xl">
                             Welcome to your Book Store application!
                         </div>
-
+                    @can('isAdmin')
+                        <div class="btn btn-success btn-lg">
+                          You have Admin Access
+                        </div>
+                    @elsecan('isManager')
+                        <div class="btn btn-primary btn-lg">
+                          You have Manager Access
+                        </div>
+                    @else
+                        <div class="btn btn-info btn-lg">
+                          You have User Access
+                        </div>
+                    @endcan
                         <div class="mt-6 text-gray-500">
                             The features of digital wallets bring value both for ordinary users and businesses. Here is
                             the list of the most significant ones.

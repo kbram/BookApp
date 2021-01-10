@@ -52,11 +52,7 @@
                                 <td>{{ $payment->percentage }}%</td>
                                 <td>{{ $payment->payment_cost }}</td>
                                 <td>
-                                    @foreach ($books as $book)
-                                        @if ($payment->book_id == $book->id)
-                                            {{ $book->book_name }}
-                                        @endif
-                                    @endforeach
+                                    {{ $payment->book()->pluck("book_name")->first()}}
                                 </td>
                                 <td>
                                     <a href="{{ URL::to('payments/' . $payment->id . '/edit') }}" type="button"

@@ -21306,26 +21306,26 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$('#checkpay').prop('checked', false);
-$('#checkpay').change(function () {
-  if ($(this).prop('checked')) {
-    $('#payment_percentage').prop('readonly', false);
+$("#checkpay").prop("checked", false);
+$("#checkpay").change(function () {
+  if ($(this).prop("checked")) {
+    $("#payment_percentage").prop("readonly", false);
   } else {
-    $('#payment_percentage').prop('readonly', true);
+    $("#payment_percentage").prop("readonly", true);
   }
 });
-var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-$('#book_id').on('change', function () {
+var CSRF_TOKEN = $('meta[name="csrf-token"]').attr("content");
+$("#book_id").on("change", function () {
   $id = $(this).val();
   $.ajax({
-    type: 'GET',
-    url: '/payment/getbookcost',
+    type: "GET",
+    url: "/payment/getbookcost",
     headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
     },
     data: {
       _token: CSRF_TOKEN,
-      'id': $id
+      id: $id
     },
     success: function success(result) {
       $id = $("#amount").val(result);
@@ -21333,9 +21333,9 @@ $('#book_id').on('change', function () {
     error: function error(response, status, _error) {}
   });
 });
-$(document).on('click', '.btn-payment', function () {
+$(document).on("click", ".btn-payment", function () {
   $id = this.id;
-  var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+  var CSRF_TOKEN = $('meta[name="csrf-token"]').attr("content");
   swal({
     title: "Are you sure?",
     text: "Once deleted, you will not be able to recover this data!",
@@ -21345,11 +21345,11 @@ $(document).on('click', '.btn-payment', function () {
   }).then(function (willDelete) {
     if (willDelete) {
       $.ajax({
-        type: 'POST',
-        url: 'payment/delete',
+        type: "POST",
+        url: "payment/delete",
         data: {
           _token: CSRF_TOKEN,
-          'id': $id
+          id: $id
         },
         success: function success(result) {
           swal("Poof! Your imaginary   data has been deleted!", {
@@ -21359,8 +21359,6 @@ $(document).on('click', '.btn-payment', function () {
         },
         error: function error(response, status, _error2) {
           if (response.status === 422) {}
-
-          ;
         }
       });
     } else {
@@ -21368,9 +21366,9 @@ $(document).on('click', '.btn-payment', function () {
     }
   });
 });
-$(document).on('click', '.btn-book', function () {
+$(document).on("click", ".btn-book", function () {
   $id = this.id;
-  var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+  var CSRF_TOKEN = $('meta[name="csrf-token"]').attr("content");
   swal({
     title: "Are you sure?",
     text: "Once deleted, you will not be able to recover this data!",
@@ -21380,11 +21378,11 @@ $(document).on('click', '.btn-book', function () {
   }).then(function (willDelete) {
     if (willDelete) {
       $.ajax({
-        type: 'POST',
-        url: 'book/delete',
+        type: "POST",
+        url: "book/delete",
         data: {
           _token: CSRF_TOKEN,
-          'id': $id
+          id: $id
         },
         success: function success(result) {
           swal("Poof! Your imaginary book data has been deleted!", {
@@ -21394,8 +21392,6 @@ $(document).on('click', '.btn-book', function () {
         },
         error: function error(response, status, _error3) {
           if (response.status === 422) {}
-
-          ;
         }
       });
     } else {
@@ -21403,29 +21399,29 @@ $(document).on('click', '.btn-book', function () {
     }
   });
 });
-$(document).on('click', '.navVarify', function () {
-  $('.navVarify').removeClass('navclick');
+$(document).on("click", ".navVarify", function () {
+  $(".navVarify").removeClass("navclick");
   $(this).find(".navclick").css("visibility", "visible");
 });
 $(document).ready(function () {
   // Pause just a moment
   setTimeout(function () {
-    var $book = $('.book'); // Apply the intro classes that will 
+    var $book = $(".book"); // Apply the intro classes that will
     // appear to turn the book,
     // revealing its spine
 
-    $book.addClass('bookIntro'); // pause another moment, then turn back
+    $book.addClass("bookIntro"); // pause another moment, then turn back
 
     setTimeout(function () {
-      $book.removeClass('bookIntro');
+      $book.removeClass("bookIntro");
     }, 2000);
   }, 1000);
 });
 $.ajax({
-  type: 'GET',
-  url: '/payment/total',
+  type: "GET",
+  url: "/payment/total",
   headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
   },
   data: {
     _token: CSRF_TOKEN
@@ -21433,18 +21429,18 @@ $.ajax({
   success: function success(response) {
     var amount = response["amount"];
     var payment_cost = response["payment_cost"];
-    google.charts.load('current', {
-      'packages': ['corechart']
+    google.charts.load("current", {
+      packages: ["corechart"]
     });
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-      var data = google.visualization.arrayToDataTable([['Task', 'Payment Details'], ['Amount Recived', amount], ['Earn Cost', payment_cost]]);
+      var data = google.visualization.arrayToDataTable([["Task", "Payment Details"], ["Amount Recived", amount], ["Earn Cost", payment_cost]]);
       var options = {
-        title: 'Payment Details',
-        colors: ['#68b7dc', '#6894dc', '#6871dc', '#8068dc']
+        title: "Payment Details",
+        colors: ["#68b7dc", "#6894dc", "#6871dc", "#8068dc"]
       };
-      var chart = new google.visualization.PieChart(document.getElementById('chart'));
+      var chart = new google.visualization.PieChart(document.getElementById("chart"));
       chart.draw(data, options);
     }
   },
@@ -21452,21 +21448,21 @@ $.ajax({
 });
 var x = [[]];
 $.ajax({
-  type: 'GET',
-  url: '/payment/bookvice',
+  type: "GET",
+  url: "/payment/bookvice",
   headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
   },
   data: {
     _token: CSRF_TOKEN
   },
   success: function success(response) {
-    var pay = [['Books', 'Cost', 'Payment']];
+    var pay = [["Books", "Cost", "Payment"]];
     $.each(response, function (key, value) {
       pay.push([value["id"], value["cost"], value["payment"]]);
     });
-    google.charts.load('current', {
-      'packages': ['bar']
+    google.charts.load("current", {
+      packages: ["bar"]
     });
     google.charts.setOnLoadCallback(drawChart);
 
@@ -21474,22 +21470,22 @@ $.ajax({
       var data = google.visualization.arrayToDataTable(pay);
       var options = {
         chart: {
-          title: 'Compare with book',
-          subtitle: 'Payment vs Cost',
+          title: "Compare with book",
+          subtitle: "Payment vs Cost",
           color: ["red", "yellow"]
         }
       };
-      var chart = new google.charts.Bar(document.getElementById('chart1'));
+      var chart = new google.charts.Bar(document.getElementById("chart1"));
       chart.draw(data, google.charts.Bar.convertOptions(options));
     }
   },
   error: function error(response, status, _error5) {}
 });
 $.ajax({
-  type: 'GET',
-  url: '/payment/paymenthistory',
+  type: "GET",
+  url: "/payment/paymenthistory",
   headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
   },
   data: {
     _token: CSRF_TOKEN
@@ -21500,84 +21496,84 @@ $.ajax({
     $.each(response, function (key, value) {
       pay.push([value["payment_date"], parseInt(value["amount"]), parseInt(value["payment_cost"])]);
     });
-    google.charts.load('current', {
-      'packages': ['line']
+    google.charts.load("current", {
+      packages: ["line"]
     });
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
       var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Dates');
-      data.addColumn('number', 'Payment');
-      data.addColumn('number', 'Cost');
+      data.addColumn("string", "Dates");
+      data.addColumn("number", "Payment");
+      data.addColumn("number", "Cost");
       data.addRows(pay);
       var options = {
         chart: {
-          title: 'Date vice results',
-          subtitle: 'Recived payment and cost of earning'
+          title: "Date vice results",
+          subtitle: "Recived payment and cost of earning"
         },
         width: 900,
         height: 500,
         axes: {
           x: {
             0: {
-              side: 'top'
+              side: "top"
             }
           }
         }
       };
-      var chart = new google.charts.Line(document.getElementById('chart2'));
+      var chart = new google.charts.Line(document.getElementById("chart2"));
       chart.draw(data, google.charts.Line.convertOptions(options));
     }
   },
   error: function error(response, status, _error6) {}
 });
-$(document).on('click', '#search', function () {
+$(document).on("click", "#search", function () {
   $s = document.getElementById("start_date").value;
   $e = document.getElementById("end_date").value;
   $.ajax({
-    type: 'GET',
-    url: '/payment/serch',
+    type: "GET",
+    url: "/payment/serch",
     headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
     },
     data: {
       _token: CSRF_TOKEN,
-      'start': $s,
-      'end': $e
+      start: $s,
+      end: $e
     },
     success: function success(response) {
       var pay = [["2020-01-01 00:00:00", 0, 0]];
       $.each(response, function (key, value) {
         pay.push([value["payment_date"], parseInt(value["amount"]), parseInt(value["payment_cost"])]);
       });
-      google.charts.load('current', {
-        'packages': ['line']
+      google.charts.load("current", {
+        packages: ["line"]
       });
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
         var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Dates');
-        data.addColumn('number', 'Payment');
-        data.addColumn('number', 'Cost');
+        data.addColumn("string", "Dates");
+        data.addColumn("number", "Payment");
+        data.addColumn("number", "Cost");
         data.addRows(pay);
         var options = {
           chart: {
-            title: 'Date vice results',
-            subtitle: 'Recived payment and cost of earning'
+            title: "Date vice results",
+            subtitle: "Recived payment and cost of earning"
           },
           width: 900,
           height: 500,
           axes: {
             x: {
               0: {
-                side: 'top'
+                side: "top"
               }
             }
           }
         };
-        var chart = new google.charts.Line(document.getElementById('chart2'));
+        var chart = new google.charts.Line(document.getElementById("chart2"));
         chart.draw(data, google.charts.Line.convertOptions(options));
       }
     },
